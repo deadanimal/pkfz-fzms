@@ -1,0 +1,104 @@
+<ion-header mode="ios" class="ion-no-border">
+	<ion-toolbar mode="ios">
+		<ion-buttons slot="start">
+			<ion-back-button 
+				defaultHref="/auth/login"
+				routerLink="/auth/login"
+				routerDirection="back"
+			>
+			</ion-back-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" fullscreen>
+	<div class="main-content">
+		<ion-grid>
+			<ion-row>
+				<ion-col>
+					<img src="../assets/img/register.svg">
+					<p class="ion-text-center ion-padding-bottom">Please enter your data</p>
+	
+					<form
+						class="form"
+						[formGroup]="registerForm"
+						(ngSubmit)="register()"
+					>
+						<ion-item lines="none" class="ion-no-padding ion-no-margin">
+							<ion-label position="stacked">Your Username</ion-label>
+							<ion-input type="text" formControlName="username" placeholder="Username"></ion-input>
+						</ion-item>
+	
+						<div class="validation-errors">
+							<ng-container *ngFor="let message of registerFormMessages.username">
+								<div 
+									class="error-message"
+									*ngIf="registerForm.get('username').hasError(message.type) && (registerForm.get('username').dirty || registerForm.get('username').touched)"
+								>
+									{{ message.message }}
+								</div>
+							</ng-container>
+						</div>
+	
+						<ion-item lines="none" class="ion-no-padding ion-no-margin">
+							<ion-label position="stacked">Your Password</ion-label>
+							<ion-input type="text" formControlName="password1" placeholder="Password"></ion-input>
+						</ion-item>
+	
+						<div class="validation-errors">
+							<ng-container *ngFor="let message of registerFormMessages.password1">
+								<div 
+									class="error-message"
+									*ngIf="registerForm.get('password1').hasError(message.type) && (registerForm.get('password1').dirty || registerForm.get('password1').touched)"
+								>
+									{{ message.message }}
+								</div>
+							</ng-container>
+						</div>
+	
+						<ion-item lines="none" class="ion-no-padding ion-no-margin">
+							<ion-label position="stacked">Confirm Your Password</ion-label>
+							<ion-input type="password" formControlName="password2" placeholder="Confirm password"></ion-input>
+						</ion-item>
+	
+						<div class="validation-errors">
+							<ng-container *ngFor="let message of registerFormMessages.password2">
+								<div 
+									class="error-message"
+									*ngIf="registerForm.get('password2').hasError(message.type) && (registerForm.get('password2').dirty || registerForm.get('password2').touched)">
+									{{ message.message }}
+								</div>
+							</ng-container>
+						</div>
+	
+						<div class="ion-text-center">
+							<ion-button 
+								*ngIf="!isLoading"
+								type="submit"
+								shape="round"
+								color="primary"
+								mode="ios"
+								[disabled]="!registerForm.valid"
+							>
+								Register
+							</ion-button>
+							<ion-button
+								disabled
+								*ngIf="isLoading"
+								shape="round"
+								color="primary"
+								mode="ios"
+							>
+								<ion-spinner name="bubbles"></ion-spinner>
+							</ion-button>
+							<p class="go-to-login">
+								Already have an account? 
+								<a (click)="navigateLoginPage('/auth/login')">Try to Log In.</a>
+							</p>
+						</div>
+					</form>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</div>
+</ion-content>

@@ -1,0 +1,66 @@
+<ion-content class="ion-padding" fullscreen>
+	<div class="main-content">
+		<ion-grid>
+			<ion-row>
+				<ion-col>
+					<img src="../assets/thunder.svg">
+					<form
+						class="form"
+						[formGroup]="loginForm"
+						(ngSubmit)="login()"
+					>
+						<p class="ion-text-center ion-padding-bottom">Please enter your credentials</p>
+						<ion-item lines="none" class="ion-no-padding ion-no-margin">
+							<ion-label position="stacked">Your email</ion-label>
+							<ion-input type="text" formControlName="username" placeholder="Your Email"></ion-input>
+						</ion-item>
+	
+						<div class="validation-errors">
+							<ng-container *ngFor="let message of loginFormMessages.username">
+								<div 
+									class="error-message"
+									*ngIf="loginForm.get('username').hasError(message.type) && (loginForm.get('username').dirty || loginForm.get('username').touched)"
+								>
+									{{ message.message }}
+								</div>
+							</ng-container>
+						</div>
+	
+						<ion-item lines="none" class="ion-no-padding ion-no-margin">
+							<ion-label position="stacked">Password</ion-label>
+							<ion-input type="password" formControlName="password" placeholder="Password"></ion-input>
+						</ion-item>
+	
+						<div class="validation-errors ion-text-right">
+							<p><a (click)="navigatePage('/auth/forgot')">Forgot Password </a></p>
+						</div>
+	
+						<div class="ion-text-center">
+							<ion-button 
+								*ngIf="!isLoading"
+								type="submit"
+								[disabled]="!loginForm.valid"
+								shape="round"
+								color="primary"
+								mode="ios"
+							>
+								Login
+							</ion-button>
+							<ion-button 
+								disabled 
+								*ngIf="isLoading"
+								type="submit"
+								shape="round"
+								color="primary"
+								mode="ios"
+							>
+								<ion-spinner name="bubbles"></ion-spinner>
+							</ion-button>
+							<p>No account yet? <a (click)="navigatePage('/auth/register')">Create an account.</a>
+						</div>
+					</form>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</div>
+</ion-content>
