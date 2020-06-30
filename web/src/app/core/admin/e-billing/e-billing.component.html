@@ -1,42 +1,421 @@
 <div class="header pb-6">
-	<div class="container-fluid">
-		<div class="header-body">
-			<div class="row align-items-center py-4">
-				<div class="col-lg-6 col-7">
-					<h6 class="h2 text-dark d-inline-block mb-0">e-Billing</h6>
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-dark d-inline-block mb-0">e-Billing</h6>
 
-					<nav aria-label="breadcrumb" class=" d-none d-md-inline-block ml-md-4">
-						<ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-							<li class=" breadcrumb-item">
-								<a href="javascript:void(0)"> <i class="fas fa-user-tag text-dark"> </i> </a>
-							</li>
-						</ol>
-					</nav>
-				</div>
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)">
+                  <i class="fas fa-user-tag text-dark"> </i>
+                </a>
+              </li>
+            </ol>
+          </nav>
+        </div>
 
-				<!-- <div class="col-lg-6 col-5 text-right">
-					<a class="btn btn-sm btn-neutral" href="javascript:void(0)"> New </a>
+        <div class="col-lg-6 col-5 text-right text-white">
+          <!-- <a class="btn btn-sm btn-default" (click)="openModal(addNewReceipt)">
+            Apply Now
+          </a> -->
 
-					<a class="btn btn-sm btn-neutral" href="javascript:void(0)">
-						Filters
-					</a>
-				</div> -->
-			</div>
-		</div>
-	</div>
+          <!-- <a class="btn btn-sm btn-neutral" href="javascript:void(0)">
+										Filters
+									</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="container-fluid mt--6">
-    <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="card-header bg-secondary">
-                    <h4 class="m-0"></h4>
-                </div>
-                <div class="card-body">
-
-                </div>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1">Chart</h6>
+              <h5 class="h3 mb-0">E - Billing</h5>
             </div>
+          </div>
         </div>
+        <div class="chart">
+          <div class="amchart" id="chartdiveBilling5"></div>
+        </div>
+      </div>
     </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1">Chart</h6>
+              <h5 class="h3 mb-0">E - Billing</h5>
+            </div>
+          </div>
+        </div>
+        <div class="chart">
+          <div class="amchart" id="chartdiveBilling1"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-4 col-md-6">
+      <div class="card card-stats">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase text-muted mb-0">
+                Total Traffic
+              </h5>
+              <span class="h2 font-weight-bold mb-0"> 350 </span>
+            </div>
+            <div class="col-auto">
+              <div
+                class="icon icon-shape bg-gradient-red text-white rounded-circle shadow"
+              >
+                <i class="ni ni-active-40"> </i>
+              </div>
+            </div>
+          </div>
+          <p class="mt-3 mb-0 text-sm">
+            <span class="text-success mr-2">
+              <i class="fa fa-arrow-up"> </i> 3.48%
+            </span>
+            <span class="text-nowrap"> Since last month </span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-4 col-md-6">
+      <div class="card card-stats">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase text-muted mb-0">
+                Gate Application
+              </h5>
+              <span class="h2 font-weight-bold mb-0"> 2,356 </span>
+            </div>
+            <div class="col-auto">
+              <div
+                class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow"
+              >
+                <i class="ni ni-chart-pie-35"> </i>
+              </div>
+            </div>
+          </div>
+          <p class="mt-3 mb-0 text-sm">
+            <span class="text-success mr-2">
+              <i class="fa fa-arrow-up"> </i> 3.48%
+            </span>
+            <span class="text-nowrap"> Since last month </span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-4 col-md-6">
+      <div class="card card-stats">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase text-muted mb-0">
+                Performance
+              </h5>
+              <span class="h2 font-weight-bold mb-0"> 924 </span>
+            </div>
+            <div class="col-auto">
+              <div
+                class="icon icon-shape bg-gradient-green text-white rounded-circle shadow"
+              >
+                <i class="ni ni-money-coins"> </i>
+              </div>
+            </div>
+          </div>
+          <p class="mt-3 mb-0 text-sm">
+            <span class="text-success mr-2">
+              <i class="fa fa-arrow-up"> </i> 3.48%
+            </span>
+            <span class="text-nowrap"> Since last month </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="m-0">List Of Billing</h3>
+        </div>
+        <div class="dataTables_wrapper py-4">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <div class="dataTables_length" id="datatable_length">
+                <label>
+                  Show
+                  <select
+                    name="datatable_length"
+                    aria-controls="datatable"
+                    class="form-control form-control-sm"
+                    (change)="entriesChange($event)"
+                  >
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="-1">All</option>
+                  </select>
+                  records
+                </label>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <!-- <div id="datatable_filter" class="dataTables_filter">
+										<label>
+										  <input
+											type="search"
+											class="form-control form-control-sm"
+											placeholder="Search records"
+											aria-controls="datatable"
+											(keyup)="filterTable($event)"
+										  />
+										</label>
+									  </div> -->
+            </div>
+          </div>
+
+          <ngx-datatable
+            class="bootstrap selection-cell"
+            [columnMode]="'force'"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [rowHeight]="'auto'"
+            [limit]="tableEntries != -1 ? tableEntries : undefined"
+            [rows]="listIfse"
+            (activate)="onActivate($event)"
+          >
+            <ngx-datatable-column>
+              <ng-template ngx-datatable-header-template>
+                <span>Application ID</span>
+              </ng-template>
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                {{ row.application_id }}
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Name"></ngx-datatable-column>
+
+            <ngx-datatable-column name="Reason"></ngx-datatable-column>
+
+            <ngx-datatable-column>
+              <ng-template ngx-datatable-header-template>
+                <span>Date Applied</span>
+              </ng-template>
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                {{ row.date }}
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column>
+              <ng-template ngx-datatable-header-template>
+                <span>Status</span>
+              </ng-template>
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <span
+                  *ngIf="row.status == 'In Progress'"
+                  class="badge badge-pill badge-warning"
+                  >In Progress</span
+                >
+                <span
+                  *ngIf="row.status == 'Completed'"
+                  class="badge badge-pill badge-success"
+                  >Completed</span
+                >
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column>
+              <ng-template ngx-datatable-header-template>
+                <span>Action</span>
+              </ng-template>
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <button
+                  (click)="successAlert('Accept Application')"
+                  class="btn btn-sm btn-info"
+                >
+                  Accept
+                </button>
+                <button
+                  (click)="successAlert('Approve Application')"
+                  class="btn btn-sm btn-success"
+                >
+                  Approve
+                </button>
+                <button
+                  (click)="successAlert('Hold Application')"
+                  class="btn btn-sm btn-primary"
+                >
+                  Hold
+                </button>
+                <button
+                  (click)="successAlert('Application')"
+                  class="btn btn-sm btn-warning"
+                >
+                  View
+                </button>
+                <button
+                  (click)="successAlert('Export File')"
+                  class="btn btn-sm btn-secondary"
+                >
+                  Export
+                </button>
+                <button
+                  (click)="successAlert('Reject Application')"
+                  class="btn btn-sm btn-danger"
+                >
+                  Reject
+                </button>
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<ng-template #addNewReceipt>
+  <div class="modal-header bg-default">
+    <h6 class="modal-title text-white my-auto" id="modal-title-default">
+      Yearly Pass Application
+    </h6>
+
+    <button
+      aria-label="Close"
+      class="close"
+      data-dismiss="modal"
+      type="button"
+      (click)="closeModal()"
+    >
+      <span aria-hidden="true" class="text-white my-auto"> × </span>
+    </button>
+  </div>
+
+  <div class="modal-body bg-secondary">
+    <form>
+      <div class="form-group">
+        <label class="form-control-label">Name</label>
+        <input class="form-control" placeholder="Enter name" type="text" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">Phone number</label>
+        <input
+          class="form-control"
+          placeholder="Enter phone number"
+          type="text"
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">Email</label>
+        <input class="form-control" placeholder="Enter email" type="text" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">Description</label>
+        <textarea
+          class="form-control"
+          placeholder="Enter description"
+          type="text"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">Billing method</label>
+        <br />
+        <div class="custom-control custom-radio custom-control-inline">
+          <input
+            type="radio"
+            id="customRadioInline1"
+            name="customRadioInline1"
+            class="custom-control-input"
+          />
+          <label class="custom-control-label" for="customRadioInline1"
+            >Monthly invoice</label
+          >
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input
+            type="radio"
+            id="customRadioInline2"
+            name="customRadioInline1"
+            class="custom-control-input"
+          />
+          <label class="custom-control-label" for="customRadioInline2"
+            >Cash at counter</label
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">Supporting document</label>
+        <div
+          class="dropzone dropzone-single"
+          data-toggle="dropzone"
+          data-dropzone-url="http://"
+        >
+          <div class="fallback">
+            <div class="custom-file">
+              <input
+                type="file"
+                class="custom-file-input"
+                id="dropzoneBasicUpload"
+              />
+              <label class="custom-file-label" for="dropzoneBasicUpload"
+                >Choose file</label
+              >
+            </div>
+          </div>
+          <div class="dz-preview dz-preview-single">
+            <div class="dz-preview-cover">
+              <img
+                class="dz-preview-img"
+                src="..."
+                alt="..."
+                data-dz-thumbnail=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer bg-secondary">
+    <button
+      class="btn btn-success"
+      type="button"
+      (click)="successAlert('add data')"
+    >
+      Create
+    </button>
+
+    <button
+      class="btn btn-outline-danger ml-auto"
+      data-dismiss="modal"
+      type="button"
+      (click)="closeModal()"
+    >
+      Close
+    </button>
+  </div>
+</ng-template>
