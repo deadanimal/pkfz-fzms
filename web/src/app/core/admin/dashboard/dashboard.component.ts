@@ -4,54 +4,52 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import * as am4maps from "@amcharts/amcharts4/maps";
 import am4geodata_continentsLow from "@amcharts/amcharts4-geodata/continentsLow";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: "app-dashboard",
+  templateUrl: "./dashboard.component.html",
+  styleUrls: ["./dashboard.component.scss"],
 })
 export class DashboardComponent implements OnInit, OnDestroy {
-
   // Chart
-  private chart: any
-  private chart1: any
-  private chart2: any
-  private clicked: any = true
-  private clicked1: any = false
+  private chart: any;
+  private chart1: any;
+  private chart2: any;
+  private clicked: any = true;
+  private clicked1: any = false;
 
-  constructor(
-    private zone: NgZone
-  ) { }
+  constructor(private zone: NgZone) {}
 
   ngOnInit() {
-    this.getCharts()
+    this.getCharts();
   }
 
   ngOnDestroy() {
-    this.zone.runOutsideAngular(
-      () => {
-        if (this.chart) {
-          console.log('Chart disposed')
-          this.chart.dispose()
-        }
-        if (this.chart1) {
-          console.log('Chart disposed')
-          this.chart1.dispose()
-        }
+    this.zone.runOutsideAngular(() => {
+      if (this.chart) {
+        console.log("Chart disposed");
+        this.chart.dispose();
       }
-    )
+      if (this.chart1) {
+        console.log("Chart disposed");
+        this.chart1.dispose();
+      }
+    });
   }
 
   getCharts() {
     this.zone.runOutsideAngular(() => {
-      this.getChart()
-      this.getChart1()
-    })
+      this.getChart();
+      // this.getChart1();
+      this.getChart2();
+      // this.getChart3();
+      this.getChart4();
+    });
   }
 
   getChart() {
-    let container = am4core.create("chartdiv", am4core.Container);
+    let container = am4core.create("chartdivdashboard", am4core.Container);
     container.layout = "grid";
     container.fixedWidthGrid = false;
     container.width = am4core.percent(100);
@@ -62,7 +60,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     // Functions that create various sparklines
     function createLine(title, data, color) {
-
       let chart = container.createChild(am4charts.XYChart);
       chart.width = am4core.percent(45);
       chart.height = 70;
@@ -113,7 +110,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
 
     function createColumn(title, data, color) {
-
       let chart = container.createChild(am4charts.XYChart);
       chart.width = am4core.percent(45);
       chart.height = 70;
@@ -155,7 +151,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
 
     function createPie(data, color) {
-
       let chart = container.createChild(am4charts.PieChart);
       chart.width = am4core.percent(10);
       chart.height = 70;
@@ -170,7 +165,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
       pieSeries.labels.template.disabled = true;
       pieSeries.ticks.template.disabled = true;
       pieSeries.slices.template.fill = color;
-      pieSeries.slices.template.adapter.add("fill", function (fill: any, target) {
+      pieSeries.slices.template.adapter.add("fill", function (
+        fill: any,
+        target
+      ) {
         return fill.lighten(0.1 * target.dataItem.index);
       });
       pieSeries.slices.template.stroke = am4core.color("#fff");
@@ -181,163 +179,205 @@ export class DashboardComponent implements OnInit, OnDestroy {
       return chart;
     }
 
+    createLine(
+      "(Price)",
+      [
+        { date: new Date(2018, 0, 1, 8, 0, 0), value: 57 },
+        { date: new Date(2018, 0, 1, 9, 0, 0), value: 27 },
+        { date: new Date(2018, 0, 1, 10, 0, 0), value: 24 },
+        { date: new Date(2018, 0, 1, 11, 0, 0), value: 59 },
+        { date: new Date(2018, 0, 1, 12, 0, 0), value: 33 },
+        { date: new Date(2018, 0, 1, 13, 0, 0), value: 46 },
+        { date: new Date(2018, 0, 1, 14, 0, 0), value: 20 },
+        { date: new Date(2018, 0, 1, 15, 0, 0), value: 42 },
+        { date: new Date(2018, 0, 1, 16, 0, 0), value: 59, opacity: 1 },
+      ],
+      colors.getIndex(0)
+    );
 
-    createLine("(Price)", [
-      { "date": new Date(2018, 0, 1, 8, 0, 0), "value": 57 },
-      { "date": new Date(2018, 0, 1, 9, 0, 0), "value": 27 },
-      { "date": new Date(2018, 0, 1, 10, 0, 0), "value": 24 },
-      { "date": new Date(2018, 0, 1, 11, 0, 0), "value": 59 },
-      { "date": new Date(2018, 0, 1, 12, 0, 0), "value": 33 },
-      { "date": new Date(2018, 0, 1, 13, 0, 0), "value": 46 },
-      { "date": new Date(2018, 0, 1, 14, 0, 0), "value": 20 },
-      { "date": new Date(2018, 0, 1, 15, 0, 0), "value": 42 },
-      { "date": new Date(2018, 0, 1, 16, 0, 0), "value": 59, "opacity": 1 }
-    ], colors.getIndex(0));
+    createColumn(
+      "(Turnover)",
+      [
+        { date: new Date(2018, 0, 1, 8, 0, 0), value: 22 },
+        { date: new Date(2018, 0, 1, 9, 0, 0), value: 25 },
+        { date: new Date(2018, 0, 1, 10, 0, 0), value: 40 },
+        { date: new Date(2018, 0, 1, 11, 0, 0), value: 35 },
+        { date: new Date(2018, 0, 1, 12, 0, 0), value: 29 },
+        { date: new Date(2018, 0, 1, 13, 0, 0), value: 1 },
+        { date: new Date(2018, 0, 1, 14, 0, 0), value: 15 },
+        { date: new Date(2018, 0, 1, 15, 0, 0), value: 29 },
+        { date: new Date(2018, 0, 1, 16, 0, 0), value: 33, opacity: 1 },
+      ],
+      colors.getIndex(0)
+    );
 
-    createColumn("(Turnover)", [
-      { "date": new Date(2018, 0, 1, 8, 0, 0), "value": 22 },
-      { "date": new Date(2018, 0, 1, 9, 0, 0), "value": 25 },
-      { "date": new Date(2018, 0, 1, 10, 0, 0), "value": 40 },
-      { "date": new Date(2018, 0, 1, 11, 0, 0), "value": 35 },
-      { "date": new Date(2018, 0, 1, 12, 0, 0), "value": 29 },
-      { "date": new Date(2018, 0, 1, 13, 0, 0), "value": 1 },
-      { "date": new Date(2018, 0, 1, 14, 0, 0), "value": 15 },
-      { "date": new Date(2018, 0, 1, 15, 0, 0), "value": 29 },
-      { "date": new Date(2018, 0, 1, 16, 0, 0), "value": 33, "opacity": 1 }
-    ], colors.getIndex(0));
+    createPie(
+      [
+        { category: "Marketing", value: 501 },
+        { category: "Research", value: 301 },
+        { category: "Sales", value: 201 },
+        { category: "HR", value: 165 },
+      ],
+      colors.getIndex(0)
+    );
 
-    createPie([
-      { "category": "Marketing", "value": 501 },
-      { "category": "Research", "value": 301 },
-      { "category": "Sales", "value": 201 },
-      { "category": "HR", "value": 165 }
-    ], colors.getIndex(0));
+    createLine(
+      "(Price)",
+      [
+        { date: new Date(2018, 0, 1, 8, 0, 0), value: 22 },
+        { date: new Date(2018, 0, 1, 9, 0, 0), value: 25 },
+        { date: new Date(2018, 0, 1, 10, 0, 0), value: 40 },
+        { date: new Date(2018, 0, 1, 11, 0, 0), value: 35 },
+        { date: new Date(2018, 0, 1, 12, 0, 0), value: 29 },
+        { date: new Date(2018, 0, 1, 13, 0, 0), value: 1 },
+        { date: new Date(2018, 0, 1, 14, 0, 0), value: 15 },
+        { date: new Date(2018, 0, 1, 15, 0, 0), value: 29 },
+        { date: new Date(2018, 0, 1, 16, 0, 0), value: 33, opacity: 1 },
+      ],
+      colors.getIndex(1)
+    );
 
-    createLine("(Price)", [
-      { "date": new Date(2018, 0, 1, 8, 0, 0), "value": 22 },
-      { "date": new Date(2018, 0, 1, 9, 0, 0), "value": 25 },
-      { "date": new Date(2018, 0, 1, 10, 0, 0), "value": 40 },
-      { "date": new Date(2018, 0, 1, 11, 0, 0), "value": 35 },
-      { "date": new Date(2018, 0, 1, 12, 0, 0), "value": 29 },
-      { "date": new Date(2018, 0, 1, 13, 0, 0), "value": 1 },
-      { "date": new Date(2018, 0, 1, 14, 0, 0), "value": 15 },
-      { "date": new Date(2018, 0, 1, 15, 0, 0), "value": 29 },
-      { "date": new Date(2018, 0, 1, 16, 0, 0), "value": 33, "opacity": 1 }
-    ], colors.getIndex(1));
+    createColumn(
+      "(Turnover)",
+      [
+        { date: new Date(2018, 0, 1, 8, 0, 0), value: 57 },
+        { date: new Date(2018, 0, 1, 9, 0, 0), value: 27 },
+        { date: new Date(2018, 0, 1, 10, 0, 0), value: 24 },
+        { date: new Date(2018, 0, 1, 11, 0, 0), value: 59 },
+        { date: new Date(2018, 0, 1, 12, 0, 0), value: 33 },
+        { date: new Date(2018, 0, 1, 13, 0, 0), value: 46 },
+        { date: new Date(2018, 0, 1, 14, 0, 0), value: 20 },
+        { date: new Date(2018, 0, 1, 15, 0, 0), value: 42 },
+        { date: new Date(2018, 0, 1, 16, 0, 0), value: 59, opacity: 1 },
+      ],
+      colors.getIndex(1)
+    );
 
-    createColumn("(Turnover)", [
-      { "date": new Date(2018, 0, 1, 8, 0, 0), "value": 57 },
-      { "date": new Date(2018, 0, 1, 9, 0, 0), "value": 27 },
-      { "date": new Date(2018, 0, 1, 10, 0, 0), "value": 24 },
-      { "date": new Date(2018, 0, 1, 11, 0, 0), "value": 59 },
-      { "date": new Date(2018, 0, 1, 12, 0, 0), "value": 33 },
-      { "date": new Date(2018, 0, 1, 13, 0, 0), "value": 46 },
-      { "date": new Date(2018, 0, 1, 14, 0, 0), "value": 20 },
-      { "date": new Date(2018, 0, 1, 15, 0, 0), "value": 42 },
-      { "date": new Date(2018, 0, 1, 16, 0, 0), "value": 59, "opacity": 1 }
-    ], colors.getIndex(1));
+    createPie(
+      [
+        { category: "Data 1", value: 130 },
+        { category: "Data 2", value: 450 },
+        { category: "Data 3", value: 400 },
+        { category: "Data 4", value: 200 },
+      ],
+      colors.getIndex(1)
+    );
 
-    createPie([
-      { "category": "Data 1", "value": 130 },
-      { "category": "Data 2", "value": 450 },
-      { "category": "Data 3", "value": 400 },
-      { "category": "Data 4", "value": 200 }
-    ], colors.getIndex(1));
+    createLine(
+      "(Price)",
+      [
+        { date: new Date(2018, 0, 1, 8, 0, 0), value: 16 },
+        { date: new Date(2018, 0, 1, 9, 0, 0), value: 62 },
+        { date: new Date(2018, 0, 1, 10, 0, 0), value: 55 },
+        { date: new Date(2018, 0, 1, 11, 0, 0), value: 34 },
+        { date: new Date(2018, 0, 1, 12, 0, 0), value: 29 },
+        { date: new Date(2018, 0, 1, 13, 0, 0), value: 29 },
+        { date: new Date(2018, 0, 1, 14, 0, 0), value: 28 },
+        { date: new Date(2018, 0, 1, 15, 0, 0), value: 32 },
+        { date: new Date(2018, 0, 1, 16, 0, 0), value: 30, opacity: 1 },
+      ],
+      colors.getIndex(2)
+    );
 
-    createLine("(Price)", [
-      { "date": new Date(2018, 0, 1, 8, 0, 0), "value": 16 },
-      { "date": new Date(2018, 0, 1, 9, 0, 0), "value": 62 },
-      { "date": new Date(2018, 0, 1, 10, 0, 0), "value": 55 },
-      { "date": new Date(2018, 0, 1, 11, 0, 0), "value": 34 },
-      { "date": new Date(2018, 0, 1, 12, 0, 0), "value": 29 },
-      { "date": new Date(2018, 0, 1, 13, 0, 0), "value": 29 },
-      { "date": new Date(2018, 0, 1, 14, 0, 0), "value": 28 },
-      { "date": new Date(2018, 0, 1, 15, 0, 0), "value": 32 },
-      { "date": new Date(2018, 0, 1, 16, 0, 0), "value": 30, "opacity": 1 }
-    ], colors.getIndex(2));
+    createColumn(
+      "(Turnover)",
+      [
+        { date: new Date(2018, 0, 1, 8, 0, 0), value: 50 },
+        { date: new Date(2018, 0, 1, 9, 0, 0), value: 51 },
+        { date: new Date(2018, 0, 1, 10, 0, 0), value: 62 },
+        { date: new Date(2018, 0, 1, 11, 0, 0), value: 60 },
+        { date: new Date(2018, 0, 1, 12, 0, 0), value: 25 },
+        { date: new Date(2018, 0, 1, 13, 0, 0), value: 20 },
+        { date: new Date(2018, 0, 1, 14, 0, 0), value: 70 },
+        { date: new Date(2018, 0, 1, 15, 0, 0), value: 42 },
+        { date: new Date(2018, 0, 1, 16, 0, 0), value: 33, opacity: 1 },
+      ],
+      colors.getIndex(2)
+    );
 
-    createColumn("(Turnover)", [
-      { "date": new Date(2018, 0, 1, 8, 0, 0), "value": 50 },
-      { "date": new Date(2018, 0, 1, 9, 0, 0), "value": 51 },
-      { "date": new Date(2018, 0, 1, 10, 0, 0), "value": 62 },
-      { "date": new Date(2018, 0, 1, 11, 0, 0), "value": 60 },
-      { "date": new Date(2018, 0, 1, 12, 0, 0), "value": 25 },
-      { "date": new Date(2018, 0, 1, 13, 0, 0), "value": 20 },
-      { "date": new Date(2018, 0, 1, 14, 0, 0), "value": 70 },
-      { "date": new Date(2018, 0, 1, 15, 0, 0), "value": 42 },
-      { "date": new Date(2018, 0, 1, 16, 0, 0), "value": 33, "opacity": 1 }
-    ], colors.getIndex(2));
-
-    createPie([
-      { "category": "Data 1", "value": 220 },
-      { "category": "Data 2", "value": 200 },
-      { "category": "Data 3", "value": 150 },
-      { "category": "Data 4", "value": 125 }
-    ], colors.getIndex(2));
+    createPie(
+      [
+        { category: "Data 1", value: 220 },
+        { category: "Data 2", value: 200 },
+        { category: "Data 3", value: 150 },
+        { category: "Data 4", value: 125 },
+      ],
+      colors.getIndex(2)
+    );
 
     // FB
 
-    createLine("(Price)", [
-      { "date": new Date(2018, 0, 1, 8, 0, 0), "value": 52 },
-      { "date": new Date(2018, 0, 1, 9, 0, 0), "value": 55 },
-      { "date": new Date(2018, 0, 1, 10, 0, 0), "value": 35 },
-      { "date": new Date(2018, 0, 1, 11, 0, 0), "value": 34 },
-      { "date": new Date(2018, 0, 1, 12, 0, 0), "value": 39 },
-      { "date": new Date(2018, 0, 1, 13, 0, 0), "value": 42 },
-      { "date": new Date(2018, 0, 1, 14, 0, 0), "value": 29 },
-      { "date": new Date(2018, 0, 1, 15, 0, 0), "value": 22 },
-      { "date": new Date(2018, 0, 1, 16, 0, 0), "value": 15, "opacity": 1 }
-    ], colors.getIndex(3));
+    createLine(
+      "(Price)",
+      [
+        { date: new Date(2018, 0, 1, 8, 0, 0), value: 52 },
+        { date: new Date(2018, 0, 1, 9, 0, 0), value: 55 },
+        { date: new Date(2018, 0, 1, 10, 0, 0), value: 35 },
+        { date: new Date(2018, 0, 1, 11, 0, 0), value: 34 },
+        { date: new Date(2018, 0, 1, 12, 0, 0), value: 39 },
+        { date: new Date(2018, 0, 1, 13, 0, 0), value: 42 },
+        { date: new Date(2018, 0, 1, 14, 0, 0), value: 29 },
+        { date: new Date(2018, 0, 1, 15, 0, 0), value: 22 },
+        { date: new Date(2018, 0, 1, 16, 0, 0), value: 15, opacity: 1 },
+      ],
+      colors.getIndex(3)
+    );
 
-    createColumn("(Turnover)", [
-      { "date": new Date(2018, 0, 1, 8, 0, 0), "value": 20 },
-      { "date": new Date(2018, 0, 1, 9, 0, 0), "value": 20 },
-      { "date": new Date(2018, 0, 1, 10, 0, 0), "value": 25 },
-      { "date": new Date(2018, 0, 1, 11, 0, 0), "value": 26 },
-      { "date": new Date(2018, 0, 1, 12, 0, 0), "value": 29 },
-      { "date": new Date(2018, 0, 1, 13, 0, 0), "value": 27 },
-      { "date": new Date(2018, 0, 1, 14, 0, 0), "value": 25 },
-      { "date": new Date(2018, 0, 1, 15, 0, 0), "value": 32 },
-      { "date": new Date(2018, 0, 1, 16, 0, 0), "value": 30, "opacity": 1 }
-    ], colors.getIndex(3));
+    createColumn(
+      "(Turnover)",
+      [
+        { date: new Date(2018, 0, 1, 8, 0, 0), value: 20 },
+        { date: new Date(2018, 0, 1, 9, 0, 0), value: 20 },
+        { date: new Date(2018, 0, 1, 10, 0, 0), value: 25 },
+        { date: new Date(2018, 0, 1, 11, 0, 0), value: 26 },
+        { date: new Date(2018, 0, 1, 12, 0, 0), value: 29 },
+        { date: new Date(2018, 0, 1, 13, 0, 0), value: 27 },
+        { date: new Date(2018, 0, 1, 14, 0, 0), value: 25 },
+        { date: new Date(2018, 0, 1, 15, 0, 0), value: 32 },
+        { date: new Date(2018, 0, 1, 16, 0, 0), value: 30, opacity: 1 },
+      ],
+      colors.getIndex(3)
+    );
 
-    createPie([
-      { "category": "Data 1", "value": 120 },
-      { "category": "Data 2", "value": 150 },
-      { "category": "Data 3", "value": 125 },
-      { "category": "Data 4", "value": 250 }
-    ], colors.getIndex(3));
+    createPie(
+      [
+        { category: "Data 1", value: 120 },
+        { category: "Data 2", value: 150 },
+        { category: "Data 3", value: 125 },
+        { category: "Data 4", value: 250 },
+      ],
+      colors.getIndex(3)
+    );
 
-    this.chart = container
+    this.chart = container;
   }
 
   getChart1() {
-    let chart = am4core.create("chartdiv1", am4charts.PieChart);
+    let chart = am4core.create("chartdivdashboard1", am4charts.PieChart);
     chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
     chart.data = [
       {
         item: "Lights",
-        value: 40
+        value: 40,
       },
       {
         item: "Fridge",
-        value: 30
+        value: 30,
       },
       {
         item: "TV",
-        value: 20
+        value: 20,
       },
       {
         item: "Washing Machine",
-        value: 16
-      }
+        value: 16,
+      },
     ];
     chart.radius = am4core.percent(70);
     chart.innerRadius = am4core.percent(40);
     chart.startAngle = 180;
     chart.endAngle = 360;
-
 
     let series = chart.series.push(new am4charts.PieSeries());
     series.dataFields.value = "value";
@@ -355,7 +395,294 @@ export class DashboardComponent implements OnInit, OnDestroy {
     series.hiddenState.properties.endAngle = 90;
 
     //chart.legend = new am4charts.Legend();
-    this.chart1 = chart
+    this.chart1 = chart;
   }
 
+  getChart2() {
+    let chart = am4core.create("chartdivdashboard2", am4charts.XYChart);
+
+    // Add data
+    chart.data = [
+      {
+        name: "John",
+        points: 35654,
+        color: chart.colors.next(),
+        bullet: "https://www.amcharts.com/lib/images/faces/A04.png",
+      },
+      {
+        name: "Damon",
+        points: 65456,
+        color: chart.colors.next(),
+        bullet: "https://www.amcharts.com/lib/images/faces/C02.png",
+      },
+      {
+        name: "Patrick",
+        points: 45724,
+        color: chart.colors.next(),
+        bullet: "https://www.amcharts.com/lib/images/faces/D02.png",
+      },
+      {
+        name: "Mark",
+        points: 13654,
+        color: chart.colors.next(),
+        bullet: "https://www.amcharts.com/lib/images/faces/E01.png",
+      },
+    ];
+
+    // Create axes
+    let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "name";
+    categoryAxis.renderer.grid.template.disabled = true;
+    categoryAxis.renderer.minGridDistance = 30;
+    categoryAxis.renderer.inside = true;
+    categoryAxis.renderer.labels.template.fill = am4core.color("#fff");
+    categoryAxis.renderer.labels.template.fontSize = 20;
+
+    let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis.renderer.grid.template.strokeDasharray = "4,4";
+    valueAxis.renderer.labels.template.disabled = true;
+    valueAxis.min = 0;
+
+    // Do not crop bullets
+    chart.maskBullets = false;
+
+    // Remove padding
+    chart.paddingBottom = 0;
+
+    // Create series
+    let series = chart.series.push(new am4charts.ColumnSeries());
+    series.dataFields.valueY = "points";
+    series.dataFields.categoryX = "name";
+    series.columns.template.propertyFields.fill = "color";
+    series.columns.template.propertyFields.stroke = "color";
+    series.columns.template.column.cornerRadiusTopLeft = 15;
+    series.columns.template.column.cornerRadiusTopRight = 15;
+    series.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/b]";
+
+    // Add bullets
+    let bullet = series.bullets.push(new am4charts.Bullet());
+    let image = bullet.createChild(am4core.Image);
+    image.horizontalCenter = "middle";
+    image.verticalCenter = "bottom";
+    image.dy = 20;
+    image.y = am4core.percent(100);
+    image.propertyFields.href = "bullet";
+    image.tooltipText = series.columns.template.tooltipText;
+    image.propertyFields.fill = "color";
+    image.filters.push(new am4core.DropShadowFilter());
+  }
+
+  getChart3() {
+    let chart = am4core.create("chartdivdashboard3", am4charts.XYChart);
+    // chart.scrollbarX = new am4core.Scrollbar();
+
+    // Add data
+    chart.data = [
+      {
+        country: "Jan",
+        visits: 3025,
+      },
+      {
+        country: "Feb",
+        visits: 1882,
+      },
+      {
+        country: "Mar",
+        visits: 1809,
+      },
+      {
+        country: "Apr",
+        visits: 1322,
+      },
+      {
+        country: "May",
+        visits: 1122,
+      },
+      {
+        country: "Jun",
+        visits: 1114,
+      },
+      {
+        country: "July",
+        visits: 984,
+      },
+      {
+        country: "Aug",
+        visits: 711,
+      },
+      {
+        country: "Sep",
+        visits: 665,
+      },
+      {
+        country: "Oct",
+        visits: 580,
+      },
+      {
+        country: "Nov",
+        visits: 443,
+      },
+      {
+        country: "Dec",
+        visits: 441,
+      },
+    ];
+
+    // Create axes
+    let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "country";
+    categoryAxis.renderer.grid.template.location = 0;
+    categoryAxis.renderer.minGridDistance = 30;
+    categoryAxis.renderer.labels.template.horizontalCenter = "right";
+    categoryAxis.renderer.labels.template.verticalCenter = "middle";
+    categoryAxis.renderer.labels.template.rotation = 270;
+    categoryAxis.tooltip.disabled = true;
+    // categoryAxis.renderer.minHeight = 110;
+
+    let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis.renderer.minWidth = 50;
+
+    // Create series
+    let series = chart.series.push(new am4charts.ColumnSeries());
+    series.sequencedInterpolation = true;
+    series.dataFields.valueY = "visits";
+    series.dataFields.categoryX = "country";
+    series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
+    series.columns.template.strokeWidth = 0;
+
+    series.tooltip.pointerOrientation = "vertical";
+
+    series.columns.template.column.cornerRadiusTopLeft = 10;
+    series.columns.template.column.cornerRadiusTopRight = 10;
+    series.columns.template.column.fillOpacity = 0.8;
+
+    // on hover, make corner radiuses bigger
+    let hoverState = series.columns.template.column.states.create("hover");
+    hoverState.properties.cornerRadiusTopLeft = 0;
+    hoverState.properties.cornerRadiusTopRight = 0;
+    hoverState.properties.fillOpacity = 1;
+
+    series.columns.template.adapter.add("fill", function (fill, target) {
+      return chart.colors.getIndex(target.dataItem.index);
+    });
+
+    // Cursor
+    chart.cursor = new am4charts.XYCursor();
+
+    // this.chart2 = chart;
+  }
+
+  getChart4() {
+    // let chart = am4core.create("chartReceipt", am4charts.XYChart);
+    let chart = am4core.create("chartdivdashboard4", am4charts.XYChart);
+
+    // Add data
+    chart.data = [
+      {
+        month: "Jan",
+        active: 1,
+        inactive: 5,
+      },
+      {
+        month: "Feb",
+        active: 3,
+        inactive: 2,
+      },
+      {
+        month: "Mar",
+        active: 5,
+        inactive: 4,
+      },
+      {
+        month: "Apr",
+        active: 3,
+        inactive: 3,
+      },
+      {
+        month: "May",
+        active: 6,
+        inactive: 5,
+      },
+      {
+        month: "Jun",
+        active: 2,
+        inactive: 4,
+      },
+      {
+        month: "Jul",
+        active: 4,
+        inactive: 3,
+      },
+      {
+        month: "Aug",
+        active: 6,
+        inactive: 5,
+      },
+      {
+        month: "Sep",
+        active: 5,
+        inactive: 4,
+      },
+      {
+        month: "Oct",
+        active: 5,
+        inactive: 5,
+      },
+      {
+        month: "Nov",
+        active: 4,
+        inactive: 5,
+      },
+      {
+        month: "Dec",
+        active: 5,
+        inactive: 6,
+      },
+    ];
+    // Create category axis
+    let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "month";
+
+    categoryAxis.renderer.grid.template.location = 0;
+    categoryAxis.renderer.minGridDistance = 30;
+    categoryAxis.renderer.labels.template.horizontalCenter = "right";
+    categoryAxis.renderer.labels.template.verticalCenter = "middle";
+    categoryAxis.renderer.labels.template.rotation = 270;
+    categoryAxis.tooltip.disabled = true;
+    categoryAxis.renderer.minHeight = 110;
+    // categoryAxis.renderer.opposite = true;
+
+    // Create value axis
+    let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    // valueAxis.renderer.inversed = true;
+    valueAxis.title.text = "Value";
+    valueAxis.renderer.minLabelPosition = 0.01;
+
+    // Create series
+    let series1 = chart.series.push(new am4charts.LineSeries());
+    series1.dataFields.valueY = "active";
+    series1.dataFields.categoryX = "month";
+    series1.name = "Active ";
+    series1.strokeWidth = 3;
+    series1.bullets.push(new am4charts.CircleBullet());
+    series1.tooltipText = "Amount {name} in {categoryX}: {valueY}";
+    series1.legendSettings.valueText = "{valueY}";
+    series1.visible = false;
+
+    let series2 = chart.series.push(new am4charts.LineSeries());
+    series2.dataFields.valueY = "inactive";
+    series2.dataFields.categoryX = "month";
+    series2.name = "Inactive";
+    series2.strokeWidth = 3;
+    series2.bullets.push(new am4charts.CircleBullet());
+    series2.tooltipText = "Amount {name} in {categoryX}: {valueY}";
+    series2.legendSettings.valueText = "{valueY}";
+
+    // Add chart cursor
+    chart.cursor = new am4charts.XYCursor();
+    chart.cursor.behavior = "zoomY";
+
+    // Add legend
+    chart.legend = new am4charts.Legend();
+  }
 }
