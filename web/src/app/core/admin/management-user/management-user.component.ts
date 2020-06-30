@@ -302,4 +302,29 @@ export class ManagementUserComponent implements OnInit, OnDestroy {
     })
   }
 
+  entriesChange($event) {
+    this.tableEntries = $event.target.value;
+  }
+
+  filterTable($event) {
+    let val = $event.target.value;
+    this.tableTemp = this.tableRows.filter(function(d) {
+      for (var key in d) {
+        if (d[key].toLowerCase().indexOf(val) !== -1) {
+          return true;
+        }
+      }
+      return false;
+    });
+  }
+
+  onSelect({ selected }) {
+    this.tableSelected.splice(0, this.tableSelected.length);
+    this.tableSelected.push(...selected);
+  }
+  
+  onActivate(event) {
+    this.tableActiveRow = event.row;
+  }
+
 }

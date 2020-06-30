@@ -29,13 +29,58 @@ export const ROUTES: RouteInfo[] = [
     path: '/admin/dashboard',
     title: 'Dashboard',
     type: 'link',
-    icontype: 'fas fa-home text-purple'
+    icontype: 'fas fa-home text-primary'
+  },
+  {
+    path: '/admin/cargo',
+    title: 'Cargo',
+    type: 'sub',
+    icontype: 'fas fa-truck-loading text-primary',
+    collapse: 'cargo',
+    isCollapsed: true,
+    children: [
+      { path: 'zb-submission', title: 'ZB Submission', type: 'link' },
+      { path: 'gate-application', title: 'Gate Application', type: 'link' },
+      { path: 'oga-approval', title: 'OGA Approval', type: 'link' },
+      { path: 'release-number', title: 'Release Number', type: 'link' },
+      { path: 'database', title: 'Database', type: 'link' }
+    ]
+  },
+  {
+    path: '/admin/vehicle',
+    title: 'Vehicle',
+    type: 'sub',
+    icontype: 'fas fa-truck text-primary',
+    collapse: 'vehicle',
+    isCollapsed: true,
+    children: [
+      { path: 'gate-pass', title: 'Gate Pass', type: 'link' },
+      { path: 'gate-control', title: 'Gate Control', type: 'link' },
+      { path: 'vehicle-registration', title: 'Vehicle Registration', type: 'link' },
+      { path: 'vehicle-tracking', title: 'Vehicle Tracking', type: 'link' },
+      { path: 'equipment-machinery', title: 'Equipment & Machinery', type: 'link' }
+    ]
+  },
+  {
+    path: '/admin/people',
+    title: 'People',
+    type: 'sub',
+    icontype: 'fas fa-user-tag text-primary',
+    collapse: 'people',
+    isCollapsed: true,
+    children: [
+      { path: 'e-permanent', title: 'e-Permanent', type: 'link' },
+      { path: 'e-visitor', title: 'e-Visitor', type: 'link' },
+      { path: 'e-booking', title: 'e-Booking', type: 'link' },
+      { path: 'e-complaint', title: 'e-Complaint', type: 'link' },
+      { path: 'e-billing', title: 'e-Billing', type: 'link' }
+    ]
   },
   {
     path: '/admin/management',
     title: 'Management',
     type: 'sub',
-    icontype: 'fas fa-file-invoice text-pink',
+    icontype: 'fas fa-file-invoice text-primary',
     collapse: 'management',
     isCollapsed: true,
     children: [
@@ -47,7 +92,7 @@ export const ROUTES: RouteInfo[] = [
     path: '/admin/report',
     title: 'Reporting',
     type: 'link',
-    icontype: 'fas fa-chart-bar text-red'
+    icontype: 'fas fa-chart-bar text-primary'
   },
   /*
   {

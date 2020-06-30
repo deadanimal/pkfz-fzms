@@ -13,7 +13,7 @@ import { NotifyService } from 'src/app/shared/handler/notify/notify.service';
 export class LoginComponent implements OnInit {
 
   // Image
-  imgLogo = 'assets/img/logo/prototype-logo.png'
+  imgLogo = 'assets/img/logo/pkfz-logo.png'
 
   // Form
   focusUsername

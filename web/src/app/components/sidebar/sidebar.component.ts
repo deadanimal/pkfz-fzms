@@ -17,6 +17,7 @@ export class SidebarComponent implements OnInit {
   public menuItems: any[];
   public isCollapsed = true;
   public menu;
+  imgLogo = 'assets/img/logo/pkfz-logo.png'
 
   constructor(
     private authService: AuthService,
