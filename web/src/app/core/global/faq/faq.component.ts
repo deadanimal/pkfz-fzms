@@ -41,7 +41,7 @@ export class FaqComponent implements OnInit {
 
   navigatePage(path: String) {
     if (path == "home") {
-      return this.router.navigate(["/global/landing_page"]);
+      return this.router.navigate(["/global/landing-page"]);
     } else if (path == "manual") {
       return this.router.navigate(["/user-portal/user-manual"]);
     } else if (path == "faq") {

@@ -925,7 +925,7 @@ export class GateControlComponent implements OnInit {
       },
     ];
 
-    createSeries("first", "Motoccycle");
+    createSeries("first", "Motorcycle");
     createSeries("second", "Car");
     createSeries("third", "Bicycle");
 
@@ -989,7 +989,7 @@ export class GateControlComponent implements OnInit {
         amount: 501.9,
       },
       {
-        label: "Motocycle",
+        label: "Motorcycle",
         amount: 301.9,
       },
       {

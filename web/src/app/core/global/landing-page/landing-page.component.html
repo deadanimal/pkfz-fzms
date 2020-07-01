@@ -3,12 +3,8 @@
   class="navbar navbar-horizontal navbar-main navbar-expand-lg navbar-dark bg-secondary"
 >
   <div class="container">
-    <a
-      class="navbar-brand"
-      style="cursor: pointer;"
-      (click)="navigatePage('landing_page')"
-    >
-      <img src="assets/img/logo/suksel-logo.gif" />
+    <a style="cursor: pointer;" (click)="navigatePage('landing_page')">
+      <img src="assets/img/logo/pkfz-logo2.png" />
     </a>
     <button
       class="navbar-toggler"
@@ -71,14 +67,14 @@
             <span class="nav-link-inner--text">Menu Utama</span>
           </a>
         </li>
-        <li class="nav-item" style="cursor: pointer;">
+        <!-- <li class="nav-item" style="cursor: pointer;">
           <a
             class="nav-link text-dark"
             routerLinkActive="active"
             style="cursor: pointer;"
             (click)="navigatePage('faq')"
           >
-            <span class="nav-link-inner--text">Soalan Lazim</span>
+            <span class="nav-link-inner--text">FAQ</span>
           </a>
         </li>
         <li class="nav-item" style="cursor: pointer;">
@@ -88,19 +84,47 @@
             style="cursor: pointer;"
             (click)="navigatePage('about-us')"
           >
-            <span class="nav-link-inner--text">Mengenai Kami</span>
-          </a>
-        </li>
-        <!-- <li class="nav-item" style="cursor: pointer;">
-          <a
-            class="nav-link text-dark"
-            routerLinkActive="active"
-            style="cursor: pointer;"
-            (click)="navigatePage('brochure')"
-          >
-            <span class="nav-link-inner--text">Brochure</span>
+            <span class="nav-link-inner--text">About US</span>
           </a>
         </li> -->
+
+        <li class="nav-item" style="cursor: pointer;">
+          <div class="dropdown" dropdown>
+            <a
+              class="nav-link text-dark"
+              href="javascript:void(0)"
+              id="navbarDropdownMenuLink2"
+              dropdownToggle
+            >
+              <span>Register</span>
+            </a>
+            <ul
+              aria-labelledby="navbarDropdownMenuLink2"
+              *dropdownMenu
+              class="dropdown-menu"
+            >
+              <li>
+                <a
+                  style="cursor: pointer;"
+                  class="dropdown-item active"
+                  (click)="navigatePage('tenant')"
+                >
+                  Tenant
+                </a>
+              </li>
+
+              <li>
+                <a
+                  style="cursor: pointer;"
+                  class="dropdown-item"
+                  (click)="navigatePage('agent')"
+                >
+                  Agent
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
         <!-- <li class="nav-item" style="cursor: pointer;">
           <a
             class="nav-link text-dark"
@@ -210,7 +234,7 @@
               <i class="fas fa-user text-dark"></i>
             </span>
             <span class="nav-link-inner--text text-dark"
-              >&nbsp;&nbsp;Log Masuk</span
+              >&nbsp;&nbsp;Login</span
             >
           </a>
         </li>
@@ -223,22 +247,15 @@
   <carousel>
     <slide>
       <img
-        src="assets/img/default/banner.png"
+        src="assets/img/default/port2.png"
         alt="first slide"
         style="display: block; width: 100%; height: 500px;"
       />
     </slide>
     <slide>
       <img
-        src="assets/img/default/banner2.png"
+        src="assets/img/default/port1.png"
         alt="second slide"
-        style="display: block; width: 100%; height: 500px;"
-      />
-    </slide>
-    <slide>
-      <img
-        src="assets/img/default/banner3.png"
-        alt="third slide"
         style="display: block; width: 100%; height: 500px;"
       />
     </slide>
@@ -292,148 +309,59 @@
       </div>
     </div>
   </div> -->
-  <section class="py-5 pt-5 pb-0 bg-default">
-    <div class="text-center text-white pt-1 pb-5">
-      <h1 class="text-white">Lagu Negeri Selangor</h1>
-    </div>
-    <div class="container-fluid">
-      <div class="row justify-content-center text-center">
-        <iframe
-          width="80%"
-          height="450"
-          src="https://www.youtube.com/embed/1WHjQ0uK2Xo"
-          frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
-  </section>
-  <section class="section section-lg pt-lg-0 pt-5 mt-7 pb-6 bg-white">
+
+  <section
+    class="section section-lg pt-lg-0 pt-3"
+    style="background-color: #67af09; background: #67af09;"
+  >
     <div class="container">
-      <div class="text-center text-dark pt-4 pb-7">
-        <h1 class="text-dark">Pautan Agensi</h1>
-      </div>
-      <div class="row justify-content-center">
+      <div class="row justify-content-center pt-7 pb-3">
         <div class="col-lg-12">
           <div class="row">
-            <div class="col-md-2 pd-2"></div>
-            <div class="col">
-              <img
-                src="assets/img/default/agensi1.gif"
-                style="
-                  display: block;
-                  width: 100px;
-                  height: 100px;
-                  cursor: pointer;
-                "
-              />
+            <div class="col-lg-4">
+              <div class="card card-lift--hover shadow border-0">
+                <img src="assets/img/default/font1.jpg" />
+                <div class="card-footer text-black bg-transparent">
+                  <h3>Investment Incentives</h3>
+                  <br />
+                  <p>
+                    Besides assisting investors to obtain the approvals for
+                    their building, PKFZ also assists investors to obtain
+                    various incentives from the relevant government authorities.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="col">
-              <img
-                src="assets/img/default/agensi2.png"
-                style="
-                  display: block;
-                  width: 100px;
-                  height: 100px;
-                  cursor: pointer;
-                "
-              />
+            <div class="col-lg-4">
+              <div class="card card-lift--hover shadow border-0">
+                <img src="assets/img/default/font2.jpg" />
+                <div class="card-footer text-black bg-transparent">
+                  <h3>Growing Your Business</h3>
+                  <br />
+                  <p>
+                    Port Klang Free Zone (PKFZ) in Port Klang, Malaysia,
+                    represents an ideal investment for companies intending to
+                    set up or expand their business operations in South East
+                    Asia.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="col">
-              <img
-                src="assets/img/default/agensi3.png"
-                style="
-                  display: block;
-                  width: 100px;
-                  height: 100px;
-                  cursor: pointer;
-                "
-              />
+
+            <div class="col-lg-4">
+              <div class="card card-lift--hover shadow border-0">
+                <img src="assets/img/default/font3.jpg" />
+                <div class="card-footer text-black bg-transparent">
+                  <h3>Connect With Ease</h3>
+                  <br />
+                  <p>
+                    As Malaysia’s premier maritime gateway, PKFZ connects you to
+                    over 120 countries and 500 ports around the world. It is
+                    your complete logistics link to the world.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="col">
-              <img
-                src="assets/img/default/agensi4.gif"
-                style="
-                  display: block;
-                  width: 100px;
-                  height: 100px;
-                  cursor: pointer;
-                "
-              />
-            </div>
-            <div class="col">
-              <img
-                src="assets/img/default/agensi5.gif"
-                style="
-                  display: block;
-                  width: 100px;
-                  height: 100px;
-                  cursor: pointer;
-                "
-              />
-            </div>
-            <div class="col-md-2"></div>
-          </div>
-          <br /><br />
-          <div class="row mt-1 pt-1">
-            <div class="col-md-2 mt-1 pt-1"></div>
-            <div class="col">
-              <img
-                src="assets/img/default/agensi6.jpg"
-                style="
-                  display: block;
-                  width: 100px;
-                  height: 100px;
-                  cursor: pointer;
-                "
-              />
-            </div>
-            <div class="col">
-              <img
-                src="assets/img/default/agensi7.gif"
-                style="
-                  display: block;
-                  width: 100px;
-                  height: 100px;
-                  cursor: pointer;
-                "
-              />
-            </div>
-            <div class="col">
-              <img
-                src="assets/img/default/agensi8.png"
-                style="
-                  display: block;
-                  width: 100px;
-                  height: 100px;
-                  cursor: pointer;
-                "
-              />
-            </div>
-            <div class="col">
-              <img
-                src="assets/img/default/agensi9.png"
-                style="
-                  display: block;
-                  width: 100px;
-                  height: 100px;
-                  cursor: pointer;
-                "
-              />
-            </div>
-            <!-- <div class="col">
-              <img
-                src="assets/img/default/agensi1.gif"
-                style="
-                  display: block;
-                  width: 100px;
-                  height: 100px;
-                  cursor: pointer;
-                "
-              />
-            </div> -->
-            <div class="col-md-2"></div>
           </div>
         </div>
       </div>
@@ -448,33 +376,37 @@
         <span style="font-size: large; font-weight: bold;">Hubungi Kami</span>
         <br /><br />
         <span
-          ><i class="fas fa-envelope text-yellow"></i
-          >&nbsp;&nbsp;webadmin@selangor.gov.my</span
+          ><i class="fas fa-envelope text-yellow"></i>&nbsp;&nbsp;
+          info@pkfz.com</span
         ><br />
         <span
-          ><i class="fas fa-phone text-brown"></i>&nbsp;&nbsp;Tel 1:
-          (6)03-55447000</span
+          ><i class="fas fa-phone text-brown"></i>&nbsp;&nbsp;Tel: +603 3101
+          5568</span
         ><br />
         <span
-          ><i class="fas fa-phone text-brown"></i>&nbsp;&nbsp;Tel 2:
-          (6)03-55212347</span
+          ><i class="fas fa-phone text-brown"></i>&nbsp;&nbsp;Fax: +603 3101
+          2206</span
         >
       </div>
       <div class="col-md-4 text-dark">
         <span style="font-size: large; font-weight: bold;">Waktu Operasi </span>
         <br /><br />
-        <span>Hari: Isnin - Jumaat</span><br />
-        <span>Servis Kaunter: 8.15 AM - 4.15 PM</span>
+        <span>Days: Monday – Saturday</span><br />
+        <span>Operation Hour: 8am – 4am</span>
+        <br /><br />
+        <span>Days: Sunday</span><br />
+        <span>Operation Hour: 8am – 4pm</span>
       </div>
       <div class="col-md-4 text-dark">
         <span style="font-size: large; font-weight: bold;">Alamat</span>
         <br /><br />
         <span>
           <i class="fas fa-map-marker-alt text-danger"></i>&nbsp;&nbsp;Pejabat
-          Setiausaha Kerajaan Negeri Selangor,<br />
-          Bangunan Sultan Salahuddin Abdul Aziz Shah,<br />
-          40503 Shah Alam,<br />
-          Selangor Darul Ehsan.
+          Port Klang Free Zone Sdn Bhd<br />
+          Jalan FZ2-P5/KS 12<br />
+          Port Klang Free Zone<br />
+          42920 Pulau Indah<br />
+          Selangor Darul Ehsan
         </span>
       </div>
     </div>
@@ -485,9 +417,7 @@
       <div class="col-xl-6">
         <div class="copyright text-center text-xl-left text-muted">
           &copy; {{ test | date: "yyyy" }}
-          <a href="#" class="font-weight-bold ml-1" target="_blank"
-            >SUKSEL - SPPH</a
-          >
+          <a href="#" class="font-weight-bold ml-1" target="_blank">PKFZ</a>
         </div>
       </div>
       <div class="col-xl-6">
@@ -499,14 +429,13 @@
               class="nav-link text-dark"
               routerLinkActive="active"
               style="cursor: pointer;"
-              (click)="navigatePage('faq')"
             >
-              <span class="nav-link-inner--text">Soalan Lazim</span>
+              <span class="nav-link-inner--text">FAQ</span>
             </a>
           </li>
 
           <li class="nav-item" style="cursor: pointer;">
-            <a href="#" class="nav-link" target="_blank">Mengenai Kami</a>
+            <a href="#" class="nav-link" target="_blank">About Us</a>
           </li>
           <!-- <li class="nav-item" style="cursor: pointer;">
             <a

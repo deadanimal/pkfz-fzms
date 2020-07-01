@@ -7,6 +7,9 @@ import { LandingPageComponent } from "./landing-page/landing-page.component";
 import { FaqComponent } from "./faq/faq.component";
 import { AboutUsComponent } from "./about-us/about-us.component";
 
+import { AgentComponent } from "./agent/agent.component";
+import { TenantComponent } from "./tenant/tenant.component";
+
 export const GlobalRoutes: Routes = [
   {
     path: "",
@@ -20,16 +23,16 @@ export const GlobalRoutes: Routes = [
         component: ProfileComponent,
       },
       {
-        path: "settings",
-        component: SettingsComponent,
+        path: "agent",
+        component: AgentComponent,
       },
       {
         path: "landing-page",
         component: LandingPageComponent,
       },
       {
-        path: "faq",
-        component: FaqComponent,
+        path: "tenant",
+        component: TenantComponent,
       },
       {
         path: "about-us",

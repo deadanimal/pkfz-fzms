@@ -103,10 +103,10 @@ export const ROUTES: RouteInfo[] = [
     icontype: "fas fa-chart-bar text-primary",
   },
   {
-    path: "/admin/global/landing-page",
+    path: "/global/landing-page",
     title: "Portal",
     type: "link",
-    icontype: "fas fa-chart-bar text-primary",
+    icontype: "fas fa-door-open text-primary",
   },
   /*
   {

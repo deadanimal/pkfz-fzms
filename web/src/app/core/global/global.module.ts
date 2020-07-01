@@ -23,6 +23,8 @@ import { LandingPageComponent } from "./landing-page/landing-page.component";
 import { FaqComponent } from "./faq/faq.component";
 import { AboutUsComponent } from "./about-us/about-us.component";
 import { CarouselModule } from "ngx-bootstrap/carousel";
+import { AgentComponent } from './agent/agent.component';
+import { TenantComponent } from './tenant/tenant.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { CarouselModule } from "ngx-bootstrap/carousel";
     LandingPageComponent,
     FaqComponent,
     AboutUsComponent,
+    AgentComponent,
+    TenantComponent,
   ],
   imports: [
     CommonModule,
