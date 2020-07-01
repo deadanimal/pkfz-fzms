@@ -7,6 +7,9 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import { Router } from "@angular/router";
 import { NotifyService } from "src/app/shared/handler/notify/notify.service";
 import Dropzone from "dropzone";
+import swal from "sweetalert2";
+import { LoadingBarService } from "@ngx-loading-bar/core";
+import { BsModalRef, BsModalService } from "ngx-bootstrap";
 
 export enum SelectionType {
   single = "single",
@@ -56,7 +59,11 @@ export class ZbSubmissionComponent implements OnInit {
     },
   ];
 
-  constructor(private notify: NotifyService, private zone: NgZone) {}
+  constructor(
+    private notify: NotifyService,
+    private zone: NgZone,
+    private modalService: BsModalService
+  ) {}
 
   ngOnInit() {
     // run chart
@@ -85,6 +92,17 @@ export class ZbSubmissionComponent implements OnInit {
       },
     });
     document.getElementsByClassName("dz-preview-single")[0].innerHTML = "";
+  }
+
+  successAlert(task) {
+    swal.fire({
+      title: "Success",
+      text: "Successfully " + task,
+      type: "success",
+      buttonsStyling: false,
+      confirmButtonClass: "btn btn-success",
+      confirmButtonText: "Close",
+    });
   }
 
   submit() {
