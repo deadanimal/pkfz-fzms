@@ -1,0 +1,778 @@
+<nav
+  id="navbar-main"
+  class="navbar navbar-horizontal navbar-main navbar-expand-lg navbar-dark bg-secondary"
+>
+  <div class="container">
+    <a style="cursor: pointer;" (click)="navigatePage('landing_page')">
+      <img src="assets/img/logo/pkfz-logo2.png" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbar-collapse"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed"
+      aria-controls="collapseBasic"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="navbar-collapse navbar-custom-collapse collapse"
+      id="collapseBasic"
+    >
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand">
+            <a (click)="navigatePage('home')">
+              <img src="assets/img/brand/blue.png" />
+            </a>
+          </div>
+          <div class="col-6 collapse-close">
+            <button
+              type="button"
+              class="navbar-toggler"
+              data-toggle="collapse"
+              data-target="#navbar-collapse"
+              aria-controls="navbar-collapse"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              (click)="isCollapsed = !isCollapsed"
+            >
+              <span></span> <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul class="navbar-nav mr-auto">
+        <!-- <li class="nav-item" style="cursor: pointer;">
+          <a
+            class="nav-link text-dark"
+            routerLinkActive="active"
+            style="cursor: pointer;"
+            (click)="navigatePage('user-dashboard')"
+          >
+            <span class="nav-link-inner--text">Dashboard</span>
+          </a>
+        </li> -->
+        <li class="nav-item" style="cursor: pointer;">
+          <a
+            class="nav-link text-dark"
+            routerLinkActive="active"
+            style="cursor: pointer;"
+            (click)="navigatePage('home')"
+          >
+            <span class="nav-link-inner--text">Home</span>
+          </a>
+        </li>
+        <!-- <li class="nav-item" style="cursor: pointer;">
+          <a
+            class="nav-link text-dark"
+            routerLinkActive="active"
+            style="cursor: pointer;"
+            (click)="navigatePage('faq')"
+          >
+            <span class="nav-link-inner--text">FAQ</span>
+          </a>
+        </li>
+        <li class="nav-item" style="cursor: pointer;">
+          <a
+            class="nav-link text-dark"
+            routerLinkActive="active"
+            style="cursor: pointer;"
+            (click)="navigatePage('about-us')"
+          >
+            <span class="nav-link-inner--text">About US</span>
+          </a>
+        </li> -->
+
+        <li class="nav-item" style="cursor: pointer;">
+          <div class="dropdown" dropdown>
+            <a
+              class="nav-link text-dark"
+              href="javascript:void(0)"
+              id="navbarDropdownMenuLink2"
+              dropdownToggle
+            >
+              <span>Register</span>
+            </a>
+            <ul
+              aria-labelledby="navbarDropdownMenuLink2"
+              *dropdownMenu
+              class="dropdown-menu"
+            >
+              <li>
+                <a
+                  style="cursor: pointer;"
+                  class="dropdown-item active"
+                  (click)="navigatePage('tenant')"
+                >
+                  Tenant
+                </a>
+              </li>
+
+              <li>
+                <a
+                  style="cursor: pointer;"
+                  class="dropdown-item"
+                  (click)="navigatePage('agent')"
+                >
+                  Agent
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!-- <li class="nav-item" style="cursor: pointer;">
+          <a
+            class="nav-link text-dark"
+            routerLinkActive="active"
+            style="cursor: pointer;"
+            (click)="navigatePage('refund')"
+          >
+            <span class="nav-link-inner--text">Refund</span>
+          </a>
+        </li> -->
+        <!-- <li class="nav-item" style="cursor: pointer;">
+          <a
+            class="nav-link text-dark"
+            routerLinkActive="active"
+            style="cursor: pointer;"
+            (click)="navigatePage('complaint')"
+          >
+            <span class="nav-link-inner--text">Complaint</span>
+          </a>
+        </li> -->
+      </ul>
+      <hr class="d-lg-none" />
+      <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link nav-link-icon"
+            href="#"
+            target="_blank"
+            tooltip="Like us on Facebook"
+          >
+            <i class="fab fa-facebook-square text-cyan"></i>
+            <span class="nav-link-inner--text d-lg-none text-dark"
+              >Facebook</span
+            >
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link nav-link-icon"
+            href="#"
+            target="_blank"
+            tooltip="Follow us on Instagram"
+          >
+            <i class="fab fa-instagram text-pink"></i>
+            <span class="nav-link-inner--text d-lg-none text-dark"
+              >Instagram</span
+            >
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link nav-link-icon"
+            href="#"
+            target="_blank"
+            tooltip="Follow us on Twitter"
+          >
+            <i class="fab fa-twitter-square text-blue"></i>
+            <span class="nav-link-inner--text d-lg-none text-dark"
+              >Twitter</span
+            >
+          </a>
+        </li>
+        <li class="nav-item">
+          <div class="dropdown" dropdown>
+            <a
+              href="javascript:void(0)"
+              id="navbarDropdownMenuLink2"
+              dropdownToggle
+            >
+              <img
+                width="17px"
+                height="15px"
+                src="assets/img/icons/flags/MY.png"
+              />
+            </a>
+            <ul
+              aria-labelledby="navbarDropdownMenuLink2"
+              *dropdownMenu
+              class="dropdown-menu"
+            >
+              <li>
+                <a class="dropdown-item" href="javascript:void(0)">
+                  <img
+                    width="17px"
+                    height="15px"
+                    src="assets/img/icons/flags/GB.png"
+                  />
+                  EN
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item active" href="javascript:void(0)">
+                  <img
+                    width="17px"
+                    height="15px"
+                    src="assets/img/icons/flags/MY.png"
+                  />
+                  BM
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item d-none text-white d-lg-block ml-lg-4">
+          <a (click)="navigatePage('login')" style="cursor: pointer;">
+            <span class="btn-inner--icon">
+              <i class="fas fa-user text-dark"></i>
+            </span>
+            <span class="nav-link-inner--text text-dark"
+              >&nbsp;&nbsp;Login</span
+            >
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="main-content">
+  <section
+    class="section section-lg pt-lg-0 pt-8"
+    style="background-color: #67af09; background: #67af09;"
+  >
+    <div class="container pt-5">
+      <div class="row">
+        <div class="col-xl-4 order-xl-2">
+          <div class="card card-profile">
+            <img
+              alt="Image placeholder"
+              class="card-img-top"
+              src="assets/img/theme/img-1-1000x600.jpg"
+            />
+
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a>
+                    <img
+                      class="rounded-circle"
+                      src="assets/img/default/avatar.png"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4"
+            >
+              <div class="d-flex justify-content-between">
+                <a class="btn btn-sm btn-info mr-4" href="javascript:void(0)">
+                  Connect
+                </a>
+
+                <a
+                  class="btn btn-sm btn-default float-right"
+                  href="javascript:void(0)"
+                >
+                  Message
+                </a>
+              </div>
+            </div>
+
+            <div class="card-body pt-0">
+              <div class="row">
+                <div class="col">
+                  <div class="card-profile-stats d-flex justify-content-center">
+                    <div>
+                      <span class="heading"> 22 </span>
+
+                      <span class="description"> Friends </span>
+                    </div>
+
+                    <div>
+                      <span class="heading"> 10 </span>
+
+                      <span class="description"> Photos </span>
+                    </div>
+
+                    <div>
+                      <span class="heading"> 89 </span>
+
+                      <span class="description"> Comments </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center">
+                <h5 class="h3">
+                  Ali Imran<span class="font-weight-light"> , 27 </span>
+                </h5>
+
+                <div class="h5 font-weight-300">
+                  <i class="fas fa-location-arrow mr-2"> </i> Ampang, Kuala
+                  Lumpur
+                </div>
+
+                <div class="h5 mt-4">
+                  <i class="fas fa-briefcase mr-2"> </i> IT Manager
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-8 order-xl-1">
+          <div class="card bg-info">
+            <div class="card-header text-dark bg-info">
+              <h3>Rules And Regulation</h3>
+            </div>
+            <div class="card-body text-dark">
+              <ol>
+                <li>
+                  Registration must be done through online portal of port klang
+                  Free Zone (PKFZ)
+                </li>
+                <li>
+                  Attached documennt (i.e Copy of IC/Passport) is mandatory
+                </li>
+                <li>
+                  PKFZ has the right to reject application that is incomplete in
+                  details.
+                </li>
+                <li>Agent should be endorsed by tenant before pplying.</li>
+                <li>
+                  Application Process will take approximately 7-14 working days.
+                  Applicant may able to check their application status within
+                  after the time period.
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 *ngIf="!editEnabled" class="mb-0">Tenant Information</h3>
+                  <h3 *ngIf="editEnabled" class="mb-0">Edit Profile</h3>
+                </div>
+
+                <div class="col-4 text-right">
+                  <!-- <a
+                    *ngIf="!editEnabled"
+                    class="btn btn-sm btn-primary"
+                    href="javascript:void(0)"
+                  >
+                    Settings
+                  </a> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <form *ngIf="!editEnabled">
+                <h6 class="heading-small text-muted mb-4">
+                  Tenant information
+                </h6>
+
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">
+                          Name
+                        </label>
+
+                        <input
+                          class="form-control"
+                          id="input-username"
+                          placeholder="Name"
+                          type="text"
+                          value="Ali Imran"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email">
+                          Email address
+                        </label>
+
+                        <input
+                          class="form-control"
+                          id="input-email"
+                          placeholder="Email address"
+                          type="email"
+                          value="imran@prototype.com.my"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">
+                          Phone No
+                        </label>
+
+                        <input
+                          class="form-control"
+                          id="input-Phone No"
+                          placeholder="Phone No"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email">
+                          Company Name
+                        </label>
+
+                        <input
+                          class="form-control"
+                          id="input-Company Name"
+                          placeholder="Company Name"
+                          type="Company Name"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">
+                          Tenant Endorsement
+                        </label>
+
+                        <input
+                          class="form-control"
+                          id="input-Phone No"
+                          placeholder="Phone No"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email">
+                          Supportting Document
+                        </label>
+
+                        <input
+                          class="form-control"
+                          placeholder="Company Name"
+                          type="file"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <h6 class="heading-small text-muted mb-4">
+                  Contact information
+                </h6>
+
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-address">
+                          Address
+                        </label>
+
+                        <input
+                          class="form-control"
+                          id="input-address"
+                          placeholder="Home Address"
+                          type="text"
+                          value="No. 199, Lorong Esplanade 91/8A"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-city">
+                          City
+                        </label>
+
+                        <input
+                          class="form-control"
+                          id="input-city"
+                          placeholder="City"
+                          type="text"
+                          value="Petaling Jaya"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-country">
+                          Country
+                        </label>
+
+                        <input
+                          class="form-control"
+                          id="input-country"
+                          placeholder="Country"
+                          type="text"
+                          value="Malaysia"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-country">
+                          Postal code
+                        </label>
+
+                        <input
+                          class="form-control"
+                          id="input-postal-code"
+                          placeholder="Postal code"
+                          type="number"
+                          value="41240"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <form [formGroup]="editForm" *ngIf="editEnabled">
+                <h6 class="heading-small text-muted mb-4">User information</h6>
+
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">
+                          Name
+                        </label>
+
+                        <input
+                          class="form-control"
+                          id="input-username"
+                          placeholder="Name"
+                          type="text"
+                          value="Ali Imran"
+                          formControlName="name"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email">
+                          Email address
+                        </label>
+
+                        <input
+                          class="form-control"
+                          id="input-email"
+                          placeholder="Email address"
+                          type="email"
+                          value="imran@prototype.com.my"
+                          formControlName="email"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <h6 class="heading-small text-muted mb-4">
+                  Contact information
+                </h6>
+
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-address">
+                          Address
+                        </label>
+
+                        <input
+                          class="form-control"
+                          id="input-address"
+                          placeholder="Home Address"
+                          type="text"
+                          value="No. 199, Lorong Esplanade 91/8A"
+                          formControlName="address"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-city">
+                          City
+                        </label>
+
+                        <input
+                          class="form-control"
+                          id="input-city"
+                          placeholder="City"
+                          type="text"
+                          value="Petaling Jaya"
+                          formControlName="city"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-country">
+                          Country
+                        </label>
+
+                        <input
+                          class="form-control"
+                          id="input-country"
+                          placeholder="Country"
+                          type="text"
+                          value="Malaysia"
+                          formControlName="country"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-country">
+                          Postal code
+                        </label>
+
+                        <input
+                          class="form-control"
+                          id="input-postal-code"
+                          placeholder="Postal code"
+                          type="number"
+                          value="41240"
+                          formControlName="postcode"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- Footer -->
+<footer class="py-5 bg-secondary" id="footer-main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 text-dark">
+        <span style="font-size: large; font-weight: bold;">Hubungi Kami</span>
+        <br /><br />
+        <span
+          ><i class="fas fa-envelope text-yellow"></i>&nbsp;&nbsp;
+          info@pkfz.com</span
+        ><br />
+        <span
+          ><i class="fas fa-phone text-brown"></i>&nbsp;&nbsp;Tel: +603 3101
+          5568</span
+        ><br />
+        <span
+          ><i class="fas fa-phone text-brown"></i>&nbsp;&nbsp;Fax: +603 3101
+          2206</span
+        >
+      </div>
+      <div class="col-md-4 text-dark">
+        <span style="font-size: large; font-weight: bold;">Waktu Operasi </span>
+        <br /><br />
+        <span>Days: Monday – Saturday</span><br />
+        <span>Operation Hour: 8am – 4am</span>
+        <br /><br />
+        <span>Days: Sunday</span><br />
+        <span>Operation Hour: 8am – 4pm</span>
+      </div>
+      <div class="col-md-4 text-dark">
+        <span style="font-size: large; font-weight: bold;">Alamat</span>
+        <br /><br />
+        <span>
+          <i class="fas fa-map-marker-alt text-danger"></i>&nbsp;&nbsp;Pejabat
+          Port Klang Free Zone Sdn Bhd<br />
+          Jalan FZ2-P5/KS 12<br />
+          Port Klang Free Zone<br />
+          42920 Pulau Indah<br />
+          Selangor Darul Ehsan
+        </span>
+      </div>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <div class="row align-items-center justify-content-xl-between">
+      <div class="col-xl-6">
+        <div class="copyright text-center text-xl-left text-muted">
+          &copy; {{ test | date: "yyyy" }}
+          <a href="#" class="font-weight-bold ml-1" target="_blank">PKFZ</a>
+        </div>
+      </div>
+      <div class="col-xl-6">
+        <ul
+          class="nav nav-footer justify-content-center justify-content-xl-end"
+        >
+          <li class="nav-item" style="cursor: pointer;">
+            <a
+              class="nav-link text-dark"
+              routerLinkActive="active"
+              style="cursor: pointer;"
+            >
+              <span class="nav-link-inner--text">FAQ</span>
+            </a>
+          </li>
+
+          <li class="nav-item" style="cursor: pointer;">
+            <a href="#" class="nav-link" target="_blank">About Us</a>
+          </li>
+          <!-- <li class="nav-item" style="cursor: pointer;">
+            <a
+              href="http://blog.creative-tim.com?ref=adpa-presentation-page"
+              class="nav-link"
+              target="_blank"
+              >Disclaimer</a
+            >
+          </li> -->
+          <!-- <li class="nav-item">
+            <a
+              href="https://www.creative-tim.com/license?ref=adpa-presentation-page"
+              class="nav-link"
+              target="_blank"
+              >License</a
+            >
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

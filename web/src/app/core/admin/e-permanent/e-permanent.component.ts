@@ -216,7 +216,7 @@ export class EPermanentComponent implements OnInit {
       },
     ];
 
-    createSeries("first", "Motoccycle");
+    createSeries("first", "Motorcycle");
     createSeries("second", "Car");
     createSeries("third", "Bicycle");
 

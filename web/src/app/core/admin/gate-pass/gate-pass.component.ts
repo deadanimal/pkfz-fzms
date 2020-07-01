@@ -774,7 +774,7 @@ export class GatePassComponent implements OnInit {
         amount: 501.9,
       },
       {
-        label: "Motocycle",
+        label: "Motorcycle",
         amount: 301.9,
       },
       {

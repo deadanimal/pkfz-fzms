@@ -1,5 +1,11 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
+import {
+  FormGroup,
+  FormBuilder,
+  FormControl,
+  Validators,
+} from "@angular/forms";
 
 @Component({
   selector: "app-landing-page",
@@ -11,6 +17,19 @@ export class LandingPageComponent implements OnInit {
   public params: { name: string; value: string }[];
   test: Date = new Date();
   isCollapsed = true;
+
+  // Toggle
+  editEnabled: boolean = false;
+
+  // Form
+  editForm: FormGroup;
+  editFormMessages = {
+    name: [{ type: "required", message: "Name is required" }],
+    email: [
+      { type: "required", message: "Email is required" },
+      { type: "email", message: "A valid email is required" },
+    ],
+  };
 
   keyword = "name";
   data = [
@@ -65,7 +84,7 @@ export class LandingPageComponent implements OnInit {
 
   navigatePage(path: String) {
     if (path == "home") {
-      return this.router.navigate(["/global/landing_page"]);
+      return this.router.navigate(["/global/landing-page"]);
     } else if (path == "manual") {
       return this.router.navigate(["/user-portal/user-manual"]);
     } else if (path == "faq") {
@@ -80,6 +99,10 @@ export class LandingPageComponent implements OnInit {
       return this.router.navigate(["/auth/login"]);
     } else if (path == "about-us") {
       return this.router.navigate(["/global/about-us"]);
+    } else if (path == "tenant") {
+      return this.router.navigate(["/global/tenant"]);
+    } else if (path == "agent") {
+      return this.router.navigate(["/global/agent"]);
     }
   }
 }
