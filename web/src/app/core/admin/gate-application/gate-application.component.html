@@ -237,7 +237,7 @@
     <div class="col">
       <div class="card">
         <div class="card-header">
-          <h3 class="m-0">List Of Gate Pass</h3>
+          <h3 class="m-0">List Of Gate Application</h3>
         </div>
         <div class="dataTables_wrapper py-4">
           <div class="row">
@@ -345,12 +345,42 @@
                 <span>Action</span>
               </ng-template>
               <ng-template let-row="row" ngx-datatable-cell-template>
-                <button class="btn btn-sm btn-info">Accept</button>
-                <button class="btn btn-sm btn-success">Approve</button>
-                <button class="btn btn-sm btn-primary">Hold</button>
-                <button class="btn btn-sm btn-warning">View</button>
-                <button class="btn btn-sm btn-secondary">Export</button>
-                <button class="btn btn-sm btn-danger">Reject</button>
+                <button
+                  (click)="successAlert('Accept Application')"
+                  class="btn btn-sm btn-success"
+                >
+                  Accept
+                </button>
+                <!-- <button
+                  (click)="successAlert('Approve Application')"
+                  class="btn btn-sm btn-success"
+                >
+                  Approve
+                </button> -->
+                <button
+                  (click)="successAlert('View Application')"
+                  class="btn btn-sm btn-warning"
+                >
+                  View
+                </button>
+                <button
+                  (click)="successAlert('Hold Application')"
+                  class="btn btn-sm btn-primary"
+                >
+                  Hold
+                </button>
+                <button
+                  (click)="successAlert('Export Application')"
+                  class="btn btn-sm btn-info"
+                >
+                  Export
+                </button>
+                <button
+                  (click)="successAlert('Reject Application')"
+                  class="btn btn-sm btn-danger"
+                >
+                  Reject
+                </button>
               </ng-template>
             </ngx-datatable-column>
           </ngx-datatable>

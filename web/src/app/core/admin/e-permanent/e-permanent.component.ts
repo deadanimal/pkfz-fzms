@@ -7,6 +7,9 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 am4core.useTheme(am4themes_animated);
 
+import swal from "sweetalert2";
+import { LoadingBarService } from "@ngx-loading-bar/core";
+
 export enum SelectionType {
   single = "single",
   multi = "multi",
@@ -82,6 +85,17 @@ export class EPermanentComponent implements OnInit {
         ...prop,
         id: key,
       };
+    });
+  }
+
+  successAlert(task) {
+    swal.fire({
+      title: "Success",
+      text: "Successfully " + task,
+      type: "success",
+      buttonsStyling: false,
+      confirmButtonClass: "btn btn-success",
+      confirmButtonText: "Close",
     });
   }
 

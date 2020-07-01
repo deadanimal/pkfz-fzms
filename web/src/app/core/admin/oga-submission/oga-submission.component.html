@@ -17,7 +17,10 @@
         </div>
 
         <div class="col-lg-6 col-5 text-right">
-          <a class="btn btn-sm btn-default" (click)="openModal(addNewReceipt)">
+          <a
+            class="btn btn-sm btn-default text-white"
+            (click)="openModal(addNewReceipt)"
+          >
             Register
           </a>
 
@@ -239,7 +242,7 @@
     <div class="col">
       <div class="card">
         <div class="card-header">
-          <h3 class="m-0">List Of Gate Pass</h3>
+          <h3 class="m-0">List Of OGA Submission</h3>
         </div>
         <div class="dataTables_wrapper py-4">
           <div class="row">
@@ -347,12 +350,12 @@
                 <span>Action</span>
               </ng-template>
               <ng-template let-row="row" ngx-datatable-cell-template>
-                <button
+                <!-- <button
                   (click)="successAlert('Accept Application')"
                   class="btn btn-sm btn-info"
                 >
                   Accept
-                </button>
+                </button> -->
                 <button
                   (click)="successAlert('Approve Application')"
                   class="btn btn-sm btn-success"
@@ -373,7 +376,7 @@
                 </button>
                 <button
                   (click)="successAlert('Export File')"
-                  class="btn btn-sm btn-secondary"
+                  class="btn btn-sm btn-info"
                 >
                   Export
                 </button>
